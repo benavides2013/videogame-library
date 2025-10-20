@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
+    <input type="text" id="nombreJuego" placeholder="Nombre del juego">
+    
 <head>
   <meta charset="UTF-8">
   <title>Mi Primera Página</title>
@@ -13,7 +15,7 @@
     h1 {
       color: #333;
     }
-    
+
     .juego {
       background-color: purple;
       padding: 15px;
@@ -23,7 +25,7 @@
     }
     
     button {
-      background-color: #413543;
+      background-color: #6a576d;
       color: white;
       padding: 10px 20px;
       border: none;
@@ -57,17 +59,24 @@
   
   <script>
     function agregarJuego() {
-      const lista = document.getElementById('lista');
-      
-      const nuevoJuego = document.createElement('div');
-      nuevoJuego.className = 'juego';
-      nuevoJuego.innerHTML = `
-        <h3>Nuevo Juego ${Date.now()}</h3>
-        <p>Género: Por definir</p>
-        <p>Estado: Pendiente ⏳</p>
-      `;
-      
-      lista.appendChild(nuevoJuego);
+  const lista = document.getElementById('lista');
+  const nombre = document.getElementById('nombreJuego').value;
+  
+  if (nombre === '') {
+    alert('Escribe un nombre de juego');
+    return;
+  }
+  
+  const nuevoJuego = document.createElement('div');
+  nuevoJuego.className = 'juego';
+  nuevoJuego.innerHTML = `
+    <h3>${nombre}</h3>
+    <p>Género: Por definir</p>
+    <p>Estado: Pendiente ⏳</p>
+  `;
+  
+  lista.appendChild(nuevoJuego);
+  document.getElementById('nombreJuego').value = '';
     }
   </script>
 </body>
