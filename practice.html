@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Primera Página</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    .juego {
+      background-color: purple;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    button {
+      background-color: #413543;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mi Biblioteca de Videojuegos</h1>
+  
+  <div id="lista">
+    <div class="juego">
+      <h3>The Last of Us</h3>
+      <p>Género: Acción/Aventura</p>
+      <p>Estado: Completado ✅</p>
+    </div>
+    
+    <div class="juego">
+      <h3>Elden Ring</h3>
+      <p>Género: RPG</p>
+      <p>Estado: Jugando 🎮</p>
+    </div>
+  </div>
+  
+  <button onclick="agregarJuego()">Agregar Juego Nuevo</button>
+  
+  <script>
+    function agregarJuego() {
+      const lista = document.getElementById('lista');
+      
+      const nuevoJuego = document.createElement('div');
+      nuevoJuego.className = 'juego';
+      nuevoJuego.innerHTML = `
+        <h3>Nuevo Juego ${Date.now()}</h3>
+        <p>Género: Por definir</p>
+        <p>Estado: Pendiente ⏳</p>
+      `;
+      
+      lista.appendChild(nuevoJuego);
+    }
+  </script>
+</body>
+</html>
